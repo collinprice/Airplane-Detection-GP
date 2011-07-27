@@ -1,0 +1,70 @@
+# Collin Price
+
+parent.0 = ../../gp/koza/koza.params
+seed.0 = time
+seed.1 = time
+
+pop.subpops = 1
+pop.subpop.0.size =	1000
+pop.subpop.0.species.ind.numtrees = 1
+pop.subpop.0.species.ind.tree.0 = ec.gp.GPTree
+pop.subpop.0.species.ind.tree.0.tc = tc0
+
+evalthreads = 2
+
+generations = 100
+
+gp.fs.size = 1
+gp.fs.0 = ec.gp.GPFunctionSet
+gp.fs.0.name = f0
+
+
+gp.fs.0.size = 17
+gp.fs.0.func.0 = ec.app.vision.terminal.p1
+gp.fs.0.func.0.nc = nc0
+gp.fs.0.func.1 = ec.app.vision.terminal.p2
+gp.fs.0.func.1.nc = nc0
+gp.fs.0.func.2 = ec.app.vision.terminal.p3
+gp.fs.0.func.2.nc = nc0
+gp.fs.0.func.3 = ec.app.vision.terminal.p4
+gp.fs.0.func.3.nc = nc0
+gp.fs.0.func.4 = ec.app.vision.terminal.p5
+gp.fs.0.func.4.nc = nc0
+gp.fs.0.func.5 = ec.app.vision.terminal.p6
+gp.fs.0.func.5.nc = nc0
+gp.fs.0.func.6 = ec.app.vision.terminal.p7
+gp.fs.0.func.6.nc = nc0
+gp.fs.0.func.7 = ec.app.vision.terminal.p8
+gp.fs.0.func.7.nc = nc0
+gp.fs.0.func.8 = ec.app.vision.terminal.p9
+gp.fs.0.func.8.nc = nc0
+gp.fs.0.func.9 = ec.app.vision.terminal.stdDev
+gp.fs.0.func.9.nc = nc0
+gp.fs.0.func.10 = ec.app.vision.func.Sub
+gp.fs.0.func.10.nc = nc2
+gp.fs.0.func.11 = ec.app.vision.func.Div
+gp.fs.0.func.11.nc = nc2
+gp.fs.0.func.12 = ec.app.vision.func.Add
+gp.fs.0.func.12.nc = nc2
+gp.fs.0.func.13 = ec.app.vision.func.Mul
+gp.fs.0.func.13.nc = nc2
+gp.fs.0.func.14 = ec.app.vision.func.Max
+gp.fs.0.func.14.nc = nc2
+gp.fs.0.func.15 = ec.app.vision.func.Log
+gp.fs.0.func.15.nc = nc1
+gp.fs.0.func.16 = ec.app.vision.func.Exp
+gp.fs.0.func.16.nc = nc1
+
+eval.problem = ec.app.vision.Vision
+eval.problem.data = ec.app.vision.DoubleData
+
+eval.problem.training.size = 1
+eval.problem.training.0.image = ./images/073104_satellite_small1bw.png
+eval.problem.training.0.image.mask = ./images/073104_satellite_small1mask.png
+
+eval.problem.testing.size = 1
+eval.problem.testing.0.image = ./images/073104_satellitebw_11.jpg
+eval.problem.testing.0.image.mask = ./images/073104_satellitebw_11_mask.jpg
+
+stat = ec.app.vision.SimpleStatistics
+stat.file = $output.stat
